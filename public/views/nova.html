@@ -1,0 +1,57 @@
+<form name="novaListaForm" role="form" ng-submit="criarLista()">
+
+	<div class="row">
+		<div class="col-md-6">
+			<a href="#/listas" class="btn btn-default" role="button" title="Voltar para as listas de compras">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+		</div>
+		<div class="col-md-6">
+			<button class="btn btn-primary pull-right" ng-click="submit()" title="Salvar esta lista">
+				<span class="glyphicon glyphicon-floppy-save"></span>
+			</button>
+		</div>
+	</div>
+	
+	<h1>Nova Lista de Compras</h1>
+
+	<div class="form-group">
+		<label for="nomeLista">Nome</label>
+		<input type="text" ng-model="lista.nome" class="form-control" name="nomeLista"
+		placeholder="Digite o nome da Lista" required>
+		<span class="error" ng-show="novaListaForm.nomeLista.$error.required">
+        Por favor, informe o nome da lista!</span>
+	</div>
+
+	<label>Itens da lista</label>
+	<div ng-repeat="item in lista.itensComprar">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="text" ng-model="item.qtde" class="form-control" placeholder="Quantidade">
+				</div>	
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<select class="form-control">
+						<option ng-repeat="tipo in tipos">{{ tipo }}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="text" ng-model="item.nome" class="form-control"
+					 placeholder="Digite um nome para o item. Ex.: Tomate" ng-keydown="addItemByKey($event, item.count)">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<button type="button" class="btn btn-success pull-right btn-sm" ng-click="addItem()" title="Adicionar um item">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+		</div>
+	</div>
+</form>

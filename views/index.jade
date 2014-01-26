@@ -1,0 +1,30 @@
+doctype
+html(lang='pt', ng-app='listas')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+		title="Minhas compras"
+		link(rel='stylesheet' href='stylesheets/bootstrap.min.css')
+		link(rel='stylesheet' href='/stylesheets/style.css')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+		script(src='/javascripts/bootstrap.min.js')
+		script(src='/javascripts/app.js')
+		script(src='/javascripts/services.js')
+		script(src='/javascripts/controllers.js')
+	body(ng-controller="ListaTodasCtrl")
+		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+			div.navbar-container
+				div.navbar-header
+					a(href='#')
+						img(src='/imagens/logo.png')
+				form.navbar-form.navbar-right(name='buscaForm', role='search')
+					div.form-group
+						input.form-control(ng-model='busca', placeholder='Buscar lista...', ng-show='isActive("/listas")')
+		div.container(ng-view)
+		div.container
+			hr
+			footer
+				p &copy; Joãozinho 2014
