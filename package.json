@@ -1,20 +1,26 @@
 {
-  "name": "goshopping",
-  "version": "0.1.0",
-  "description": "teste",
+  "name": "node-example",
+  "version": "0.0.0",
+  "description": "This example app is so cool.",
   "main": "web.js",
-  "dependencies": {
-    "express": "~3.4.8",
-    "logfmt": "~0.18.1"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "teste"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "heroku"
+    "url": "https://github.com/jane-doe/node-example.git"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "author": "jane-doe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jane-doe/node-example/issues"
+  },
+  "dependencies": {
+    "logfmt": "~0.18.1",
+    "express": "~3.4.8"
+  }
 }
