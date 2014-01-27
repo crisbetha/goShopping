@@ -7,7 +7,7 @@ factory('Lista', function($resource) {
 			},
 			{
 				query: { method: 'GET', params: { listaId: 'listas' }, isArray: true },
-				update: {method: 'PUT', params: { listaId: 'listas' }, isArray: true }
+				update: {method: 'PUT', isArray: true }
 			})
 }).
 factory('UploadImagemService', function ($http) {

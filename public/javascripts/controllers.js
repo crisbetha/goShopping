@@ -37,8 +37,7 @@ function ListaItemCtrl($scope, $rootScope, $location, $routeParams, Lista) {
 	$scope.atualizarLista = function () {
 		var lista = $scope.lista;
 		lista.$update(function () {
-			//$location.path('/listas');
-			$location.path('/lista/' + $routeParams.listaId);
+			$scope.lista = lista;
 		});
 	};
 	$rootScope.modal = {
