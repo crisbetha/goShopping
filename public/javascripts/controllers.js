@@ -22,6 +22,7 @@ function ListaItemCtrl($scope, $rootScope, $location, $routeParams, Lista) {
 				$scope.lista.itensComprados.push(item);
 			}
 		}
+		$scope.atualizarLista();
 	}
 	$scope.excluirLista = function () {
 			$scope.lista.$remove();
@@ -31,7 +32,14 @@ function ListaItemCtrl($scope, $rootScope, $location, $routeParams, Lista) {
 	      
 	    }
 	  }
-	  $location.path('/listas');	
+	  $location.path('/listas');
+	};
+	$scope.atualizarLista = function () {
+		var lista = $scope.lista;
+		lista.$update(function () {
+			//$location.path('/listas');
+			$location.path('/lista/' + $routeParams.listaId);
+		});
 	};
 	$rootScope.modal = {
         show: false,

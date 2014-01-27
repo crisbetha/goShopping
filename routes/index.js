@@ -41,12 +41,20 @@ exports.criarLista = function(req, res) {
 	});
 };
 
-exports.atualizaLista = function (req, res) {
-	console.log("teste");
-}
+exports.atualizarLista = function(req, res){
+	var reqBody = req.body;
+	var listaId = req.params.id;
+	Lista.findByIdAndUpdate(listaId, { $set: { itensComprar: reqBody.itensComprar, itensComprados : reqBody.itensComprados }}, function(err){
+    if (err) {
+      res.render('error', {status: 500});
+    }  else {
+    	res.jsonp(1);
+    }
+  });
+};
 exports.excluirLista = function(req, res){
 	var listaId = req.params.id;
-  Lista.findByIdAndRemove(listaId, function(err){
+	Lista.findByIdAndRemove(listaId, function(err){
     if (err) {
       res.render('error', {status: 500});
     }  else {

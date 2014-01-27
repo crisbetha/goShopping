@@ -1,8 +1,14 @@
 angular.module('listaServices', ['ngResource']).
 factory('Lista', function($resource) {
-	return $resource('listas/:listaId', {listaId:'@_id'}, {
-		query: { method: 'GET', params: { listaId: 'listas' }, isArray: true }
-	})
+	return $resource(
+			'listas/:listaId', 
+			{
+				listaId:'@_id'
+			},
+			{
+				query: { method: 'GET', params: { listaId: 'listas' }, isArray: true },
+				update: {method: 'PUT', params: { listaId: 'listas' }, isArray: true }
+			})
 }).
 factory('UploadImagemService', function ($http) {
 	  var api = {
