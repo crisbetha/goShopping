@@ -18,7 +18,8 @@
 	<div class="col-md-6">
 		<h2>Itens Comprados</h2>
 		<div class="list-group">
-			<a ng-repeat="item in lista.itensComprados" href="" class="list-group-item">
+			<a ng-repeat="item in lista.itensComprados" href="" class="list-group-item" 
+			ng-click="itemDevolvido(item)">
 				<span class="glyphicon glyphicon-chevron-down lista-glyphicon"></span>{{item.qtde}}  {{item.nome}}
 			</a>
 		</div>
@@ -27,7 +28,8 @@
 	<div class="col-md-6">
 		<h2>Itens a Comprar</h2>
 		<div class="list-group">
-			<a ng-repeat="item in lista.itensComprar" href="" class="list-group-item" ng-click="itemComprado(item)">{{item.qtde}}  {{item.nome}}</a>
+			<a ng-repeat="item in lista.itensComprar" href="" class="list-group-item"
+			 ng-click="itemComprado(item)">{{item.qtde}}  {{item.nome}}</a>
 		</div>
 	</div>
 </div>

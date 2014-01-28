@@ -47,8 +47,6 @@ exports.atualizarLista = function(req, res){
 	Lista.findByIdAndUpdate(listaId, { $set: { itensComprar: reqBody.itensComprar, itensComprados : reqBody.itensComprados }}, function(err){
     if (err) {
       res.render('error', {status: 500});
-    }  else {
-    	res.jsonp(1);
     }
   });
 };
@@ -57,8 +55,6 @@ exports.excluirLista = function(req, res){
 	Lista.findByIdAndRemove(listaId, function(err){
     if (err) {
       res.render('error', {status: 500});
-    }  else {
-    	res.jsonp(1);
     }
   });
 };
