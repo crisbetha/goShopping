@@ -1,4 +1,4 @@
-angular.module('listas', ['ngRoute', 'listaServices']).
+var app = angular.module('listas', ['ngRoute', 'listaServices']).
 config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
 		when('/', { templateUrl: 'views/index.html', controller: ListaTodasCtrl }).

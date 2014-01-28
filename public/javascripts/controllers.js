@@ -51,7 +51,6 @@ function ListaItemCtrl($scope, $rootScope, $location, $routeParams, Lista) {
 }
 
 function NovaListaCtrl($scope, $location, Lista) {
-	$scope.tipos = ["und", "Kg", "l", "ml", "m", "cm"];
 	$scope.exampleData = {
 		    name: 'quantidades',
 		    local: ['timtrueman', 'JakeHarding', 'vskarich']
@@ -62,7 +61,6 @@ function NovaListaCtrl($scope, $location, Lista) {
 		itensComprar: [ { nome: '', qtde: '', preco: '', count: 1 }],
 		itensComprados: []
 	};
-	
 	$scope.addItem = function() {
 		$scope.lista.itensComprar.push({ nome: '', count: $scope.lista.itensComprar.length + 1});
 	};
@@ -82,12 +80,10 @@ function NovaListaCtrl($scope, $location, Lista) {
 			if(!p.error) {
 				$location.path('listas');
 			} else {
-				alert('NÃ£o foi possÃ­vel criar a lista de compras');
+				alert('Não foi possível criar a lista de compras');
 			}
 		});
 			
-		} else {
-			alert('VocÃª deve informar o nome da lista');
 		}
 	};
 	

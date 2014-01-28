@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var itemSchema = new mongoose.Schema({ 
 	nome: String,
-	qtde: Number,
+	qtde: String,
 	preco: Number
 });
 
