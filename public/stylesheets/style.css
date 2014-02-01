@@ -33,3 +33,10 @@ h1, h3 {
 .shared-button {
 	margin-left: 10px;
 }
+.edit-form .col-md-1, .col-md-6, .col-md-8 {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.edit-form .col-md-2 {
+	padding-right: 2px;
+}

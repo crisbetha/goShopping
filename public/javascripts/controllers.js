@@ -64,6 +64,11 @@ function ListaItemCtrl($scope, $rootScope, $location, $routeParams, Lista) {
 }
 function EditarListaCtrl($scope, $location, $routeParams, Lista) {
 	$scope.lista = Lista.get({listaId: $routeParams.listaId});
+	$scope.removeItem = null;
+	
+	$scope.showRemove = function(item) {
+		$scope.removeItem = item;
+	}
 	$scope.salvarLista = function () {
 		var lista = $scope.lista;
 		lista.$update(function () {
@@ -82,6 +87,12 @@ function EditarListaCtrl($scope, $location, $routeParams, Lista) {
 			}
 		}
 	}
+	$scope.removeComprado = function(i) {
+		$scope.lista.itensComprados.splice(i, 1);
+	}
+	$scope.removeComprar = function(i) {
+		$scope.lista.itensComprar.splice(i, 1);
+	}
 }
 function NovaListaCtrl($scope, $location, Lista) {
 	$scope.lista = {
@@ -90,6 +101,14 @@ function NovaListaCtrl($scope, $location, Lista) {
 		itensComprar: [ { nome: '', qtde: '', preco: '', count: 1 }],
 		itensComprados: []
 	};
+	$scope.removeItem = null;
+	
+	$scope.showRemove = function(item) {
+		$scope.removeItem = item;
+	}
+	$scope.removeComprar = function(i) {
+		$scope.lista.itensComprar.splice(i, 1);
+	}
 	$scope.addItem = function() {
 		$scope.lista.itensComprar.push({ nome: '', qtde: ''});
 	};
@@ -109,7 +128,7 @@ function NovaListaCtrl($scope, $location, Lista) {
 			if(!p.error) {
 				$location.path('listas');
 			} else {
-				alert('Não foi possível criar a lista de compras');
+				alert('NÃ£o foi possÃ­vel criar a lista de compras');
 			}
 		});
 			

@@ -23,7 +23,7 @@
 
 	<label>Itens da lista</label>
 	<div ng-repeat="item in lista.itensComprar">
-		<div class="row">
+		<div class="row edit-form" ng-mouseover="showRemove(item)" ng-mouseout="showRemove(null)">
 			<div class="col-md-2">
 				<div class="form-group">
 					<input type="text" ng-model="item.qtde" class="form-control" placeholder="Quantidade">
@@ -32,13 +32,18 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<input type="text" ng-model="item.nome" class="form-control"
-					 placeholder="Digite um nome para o item. Ex.: Tomate" ng-keydown="addItemByKey($event, $index + 1)">
+					 placeholder="Digite um nome para o item. Ex.: Tomate" ng-keydown="addItemByKey($event, $index + lista.itensComprados.length + 1)">
 				</div>
+			</div>
+			<div class="col-md-1">
+				<a href="" class='btn btn-primary btn-xs' title="Excluir item" ng-show="removeItem == item" ng-click="removeComprar($index)">
+					<span class="glyphicon glyphicon-trash"></span>
+				</a>
 			</div>
 		</div>
 	</div>
 	
-	<div class="row">
+	<div class="row edit-form">
 		<div class="col-md-8">
 			<button type="button" class="btn btn-success pull-right btn-sm" ng-click="addItem()" title="Adicionar um item">
 				<span class="glyphicon glyphicon-plus"></span>
