@@ -7,7 +7,7 @@
 </div>
 <h1>Minhas listas de compras</h1>
 <div class="list-group">
-	<a ng-repeat="lista in listas | filter:busca" href="#/lista/{{lista._id}}" class="list-group-item">{{lista.nome}}
+	<a ng-repeat="lista in listas | filter:busca" href="#/listas/{{lista._id}}" class="list-group-item">{{lista.nome}}
 		<!-- {{lista.data | date:'dd/MM/yyyy HH:mm'}} -->
 	</a>
 </div>

@@ -34,7 +34,9 @@ app.get('/listas/:id', routes.lista);
 
 app.post('/listas', routes.criarLista);
 app.del('/listas/:id', routes.excluirLista);
-app.put('/listas/:id', routes.atualizarLista);
+app.put('/listas/:id/editar', routes.salvarLista);
+app.put('/listas/:id', routes.salvarLista);
+
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {

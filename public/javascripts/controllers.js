@@ -43,6 +43,9 @@ function ListaItemCtrl($scope, $rootScope, $location, $routeParams, Lista) {
 	  }
 	  $location.path('/listas');
 	};
+	$scope.editarLista = function () {
+		$location.path('/listas/' +  $routeParams.listaId + '/editar');
+	}
 	$scope.atualizarLista = function () {
 		var lista = $scope.lista;
 		lista.$update(function () {
@@ -59,12 +62,29 @@ function ListaItemCtrl($scope, $rootScope, $location, $routeParams, Lista) {
         buttons: false
     };
 }
-
+function EditarListaCtrl($scope, $location, $routeParams, Lista) {
+	$scope.lista = Lista.get({listaId: $routeParams.listaId});
+	
+	$scope.salvarLista = function () {
+		var lista = $scope.lista;
+		lista.$update(function () {
+			$scope.lista = lista;
+		});
+		$location.path('/listas');
+		
+	};
+	$scope.addItem = function() {
+		$scope.lista.itensComprar.push({ nome: '', count: $scope.lista.itensComprar.length + 1});
+	};
+	$scope.addItemByKey = function(e, count){
+		if(e.keyCode == 9 && e.shiftKey	 == false) {
+			if(count == $scope.lista.itensComprar.length){
+				$scope.addItem();
+			}
+		}
+	}
+}
 function NovaListaCtrl($scope, $location, Lista) {
-	$scope.exampleData = {
-		    name: 'quantidades',
-		    local: ['timtrueman', 'JakeHarding', 'vskarich']
-		  };
 	$scope.lista = {
 		nome: '',
 		data: new Date(),

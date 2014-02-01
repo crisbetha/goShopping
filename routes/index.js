@@ -42,12 +42,25 @@ exports.criarLista = function(req, res) {
 };
 
 exports.atualizarLista = function(req, res){
+	
 	var reqBody = req.body;
 	var listaId = req.params.id;
 	Lista.findByIdAndUpdate(listaId, { $set: { itensComprar: reqBody.itensComprar, itensComprados : reqBody.itensComprados }}, function(err){
     if (err) {
       res.render('error', {status: 500});
     }
+  });
+};
+exports.salvarLista = function(req, res){
+	var reqBody = req.body;
+	var listaId = req.params.id;
+	console.log(listaId);
+	Lista.findByIdAndUpdate(listaId, { $set: {nome: reqBody.nome, itensComprar: reqBody.itensComprar, itensComprados : reqBody.itensComprados }}, function(err, lista) {
+		if(lista) {
+			res.json(lista);
+		} else {
+			res.json({error:true});
+		}
   });
 };
 exports.excluirLista = function(req, res){
