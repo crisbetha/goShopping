@@ -32,7 +32,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<input type="text" ng-model="item.nome" class="form-control"
-					 placeholder="Digite um nome para o item. Ex.: Tomate" ng-keydown="addItemByKey($event, item.count)">
+					 placeholder="Digite um nome para o item. Ex.: Tomate" ng-keydown="addItemByKey($event, $index + 1)">
 				</div>
 			</div>
 		</div>

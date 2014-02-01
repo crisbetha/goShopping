@@ -64,7 +64,6 @@ function ListaItemCtrl($scope, $rootScope, $location, $routeParams, Lista) {
 }
 function EditarListaCtrl($scope, $location, $routeParams, Lista) {
 	$scope.lista = Lista.get({listaId: $routeParams.listaId});
-	
 	$scope.salvarLista = function () {
 		var lista = $scope.lista;
 		lista.$update(function () {
@@ -74,11 +73,11 @@ function EditarListaCtrl($scope, $location, $routeParams, Lista) {
 		
 	};
 	$scope.addItem = function() {
-		$scope.lista.itensComprar.push({ nome: '', count: $scope.lista.itensComprar.length + 1});
+		$scope.lista.itensComprar.push({ nome: '', qtde: ''});
 	};
 	$scope.addItemByKey = function(e, count){
 		if(e.keyCode == 9 && e.shiftKey	 == false) {
-			if(count == $scope.lista.itensComprar.length){
+			if(count == $scope.lista.itensComprar.length + $scope.lista.itensComprados.length){
 				$scope.addItem();
 			}
 		}
@@ -92,7 +91,7 @@ function NovaListaCtrl($scope, $location, Lista) {
 		itensComprados: []
 	};
 	$scope.addItem = function() {
-		$scope.lista.itensComprar.push({ nome: '', count: $scope.lista.itensComprar.length + 1});
+		$scope.lista.itensComprar.push({ nome: '', qtde: ''});
 	};
 	$scope.addItemByKey = function(e, count){
 		if(e.keyCode == 9 && e.shiftKey	 == false) {
